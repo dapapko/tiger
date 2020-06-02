@@ -6,11 +6,11 @@ using namespace std;
 
 class Mammal {
   protected:
-    int height;
-    int weight;
-    bool likeSwimming;
-    bool isHerbivorous;
-    bool isPredator;
+    int height; // heignt of a mammal in cm
+    int weight; // weight of a mammal in kg
+    bool likeSwimming; // a mammal can like swimming or not
+    bool isHerbivorous; // is it herbivorous or not
+    bool isPredator; // is it predator or not
 public:
     static void file_to_map(string filename, map<string, string>& data, string delim)
     {
@@ -56,10 +56,14 @@ public:
 
 class Cats: public Mammal {
   protected:
-    string colourOfSkin;
-    string colourOfEyes;
-    int lengthOfTail;
-    string genus;
+    string colourOfSkin; // colour of skin (brown, orange)
+    string colourOfEyes; // colour of eyes
+    int lengthOfTail; // length of tail in cm
+    string genus; // genus - pantherinae, felinae or smth else
+
+    virtual void run(int speed) {
+        cout << "Should be overriden in children" << endl;
+    }
 
 public:
     Cats(map<string, string>& m): Mammal(m), genus("pantherinae") {
@@ -76,6 +80,13 @@ genus(genus) {}
 
     Cats(const Cats& c): Mammal(c), colourOfEyes(c.colourOfEyes), colourOfSkin(c.colourOfSkin),
     lengthOfTail(c.lengthOfTail), genus(c.genus) {}
+
+
+
+    virtual void hunt(int speed) {
+        cout << "Should be overriden in children" << endl;
+        run(speed)
+    }
 };
 
 class Tiger: public Cats
@@ -151,9 +162,6 @@ ostream& operator<< (ostream& output, const Tiger& tiger) {
     output << "Average daily course: " << tiger.averageDailyCourse << endl;
     output << "Length of fangs: " << tiger.fangLength << endl;
     output << (tiger.isHungry ? "Tiger is hungry " : "Tiger is not hungry") << endl;
-   output << (tiger.likeSwimming ? "Tiger like swimming" : "Tiger dislike swimming") << endl;
-   output << (tiger.isPredator ? "Tiger is predator " : "Tiger is not predator") << endl;
-   output << (tiger.isHerbivorous ? "Tiger is herbivorous " : "Tiger is not herbivorous") << endl;
     return output;
 }
 
