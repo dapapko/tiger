@@ -1,0 +1,6 @@
+age|8
+colourOfEyes|red
+colourOfSkin|pink
+breed|fairytale
+height|150
+weight|200
