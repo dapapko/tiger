@@ -151,6 +151,9 @@ ostream& operator<< (ostream& output, const Tiger& tiger) {
     output << "Average daily course: " << tiger.averageDailyCourse << endl;
     output << "Length of fangs: " << tiger.fangLength << endl;
     output << (tiger.isHungry ? "Tiger is hungry " : "Tiger is not hungry") << endl;
+   output << (tiger.likeSwimming ? "Tiger like swimming" : "Tiger dislike swimming") << endl;
+   output << (tiger.isPredator ? "Tiger is predator " : "Tiger is not predator") << endl;
+   output << (tiger.isHerbivorous ? "Tiger is herbivorous " : "Tiger is not herbivorous") << endl;
     return output;
 }
 
