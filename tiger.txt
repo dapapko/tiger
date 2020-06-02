@@ -1,0 +1,6 @@
+fangLength:42
+averageDailyCourse:5200
+breed:Bengal
+age:2
+isHungry:true
+speed:0
